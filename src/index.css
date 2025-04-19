@@ -5,9 +5,62 @@
 
 
 @font-face {
-    font-family: 'FaunaThin';
-    src: url('./assets/font/fauna-thin.ttf') format('truetype');
+  font-family: 'FaunaThin';
+  src: url('./assets/font/fauna-thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FaunaBold';
+  src: url('./assets/font/fauna-pro/FaunaBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FaunaExtraLight';
+  src: url('./assets/font/fauna-pro/Fauna\ Pro\ -\ Extra\ Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FaunaRegular';
+  src: url('./assets/font/fauna-pro/Fauna\ Pro\ -\ Regular.ttf') format('truetype');
+}
+
+* {
+  font-family: "Roboto Mono", 'monospace';
+}
+
+  .border-custom {
+    clip-path: polygon(
+      0px 0%,                        
+      calc(100% - 14px) 0%,          
+      100% 14px,                     
+      100% 100%,                     
+      14px 100%,                    
+      14px 100%,                     
+      0% calc(100% - 14px),          
+      0% 8px                         
+    );
+    border-radius: 8px; 
+  }
+
+  /* Scoped green scrollbar styles */
+  .custom-green-scrollbar::-webkit-scrollbar {
+    width: 10px;
   }
   
+  .custom-green-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+    border: 1px solid #C8C9C866; /* Inner border with light gray tone */
+    border-radius: 20px;
+  }
   
+  .custom-green-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #1BFFA4;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background-clip: content-box;
+  }
+  
+  .custom-green-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #17e794;
+  }
   

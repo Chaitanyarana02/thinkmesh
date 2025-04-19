@@ -9,6 +9,9 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['FaunaThin', 'sans-serif'],     
+        sansBold: ['FaunaBold', 'sans-serif'],     
+        sansReg: ['FaunaRegular', 'sans-serif'],     
+        sansLight: ['FaunaExtraLight', 'sans-serif'],       
         robot: ['"Roboto Mono"', 'monospace'], 
       },
     },

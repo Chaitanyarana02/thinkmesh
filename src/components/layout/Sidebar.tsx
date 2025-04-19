@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import LogoThinkMesh from "../../assets/Images/Logo.png";
+import { useState } from "react";
+import ConnectWallet from "./ConnectWallet";
 
 const Icon = ({ iconName }: { iconName: string }) => {
   if (iconName == "dashboard") {
@@ -39,48 +41,75 @@ const Icon = ({ iconName }: { iconName: string }) => {
         <path d="M14.375 5.625C14.375 6.78532 13.9141 7.89812 13.0936 8.71859C12.2731 9.53906 11.1603 10 10 10C8.83968 10 7.72688 9.53906 6.90641 8.71859C6.08594 7.89812 5.625 6.78532 5.625 5.625C5.625 4.46468 6.08594 3.35188 6.90641 2.53141C7.72688 1.71094 8.83968 1.25 10 1.25C11.1603 1.25 12.2731 1.71094 13.0936 2.53141C13.9141 3.35188 14.375 4.46468 14.375 5.625ZM13.125 5.625C13.125 4.7962 12.7958 4.00134 12.2097 3.41529C11.6237 2.82924 10.8288 2.5 10 2.5C9.1712 2.5 8.37634 2.82924 7.79029 3.41529C7.20424 4.00134 6.875 4.7962 6.875 5.625C6.875 6.4538 7.20424 7.24866 7.79029 7.83471C8.37634 8.42076 9.1712 8.75 10 8.75C10.8288 8.75 11.6237 8.42076 12.2097 7.83471C12.7958 7.24866 13.125 6.4538 13.125 5.625ZM4.6875 11.25C4.10734 11.25 3.55094 11.4805 3.1407 11.8907C2.73047 12.3009 2.5 12.8573 2.5 13.4375V13.75C2.5 15.2456 3.45187 16.5106 4.80312 17.3706C6.16188 18.2356 8.00125 18.75 10 18.75C11.9987 18.75 13.8375 18.2356 15.1969 17.3706C16.5481 16.5106 17.5 15.2456 17.5 13.75V13.4375C17.5 12.8573 17.2695 12.3009 16.8593 11.8907C16.4491 11.4805 15.8927 11.25 15.3125 11.25H4.6875ZM3.75 13.4375C3.75 13.1889 3.84877 12.9504 4.02459 12.7746C4.2004 12.5988 4.43886 12.5 4.6875 12.5H15.3125C15.5611 12.5 15.7996 12.5988 15.9754 12.7746C16.1512 12.9504 16.25 13.1889 16.25 13.4375V13.75C16.25 14.6706 15.6625 15.5931 14.5256 16.3163C13.3962 17.035 11.7981 17.5 10 17.5C8.20187 17.5 6.60375 17.035 5.47437 16.3163C4.33687 15.5938 3.75 14.67 3.75 13.75V13.4375Z" fill="#475467" />
       </svg>)
   }
+  if (iconName == "wallet") {
+    return (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.0042 5.83333H17.5042C17.7252 5.83333 17.9372 5.92113 18.0935 6.07741C18.2498 6.23369 18.3376 6.44565 18.3376 6.66667V16.6667C18.3376 16.8877 18.2498 17.0996 18.0935 17.2559C17.9372 17.4122 17.7252 17.5 17.5042 17.5H2.50423C2.28322 17.5 2.07126 17.4122 1.91498 17.2559C1.7587 17.0996 1.6709 16.8877 1.6709 16.6667V3.33333C1.6709 3.11232 1.7587 2.90036 1.91498 2.74408C2.07126 2.5878 2.28322 2.5 2.50423 2.5H15.0042V5.83333ZM3.33757 7.5V15.8333H16.6709V7.5H3.33757ZM3.33757 4.16667V5.83333H13.3376V4.16667H3.33757ZM12.5042 10.8333H15.0042V12.5H12.5042V10.8333Z" fill="#28F2A1" />
+      </svg>
+    )
+  }
+  if (iconName == "hamburgerMenu")
+    return (
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.50033 7.5835H11.917C12.2043 7.5835 12.4799 7.69763 12.683 7.9008C12.8862 8.10396 13.0003 8.37951 13.0003 8.66683C13.0003 8.95415 12.8862 9.2297 12.683 9.43286C12.4799 9.63603 12.2043 9.75016 11.917 9.75016H6.50033C6.21301 9.75016 5.93746 9.63603 5.73429 9.43286C5.53113 9.2297 5.41699 8.95415 5.41699 8.66683C5.41699 8.37951 5.53113 8.10396 5.73429 7.9008C5.93746 7.69763 6.21301 7.5835 6.50033 7.5835ZM14.0837 16.2502H19.5003C19.7876 16.2502 20.0632 16.3643 20.2664 16.5675C20.4695 16.7706 20.5837 17.0462 20.5837 17.3335C20.5837 17.6208 20.4695 17.8964 20.2664 18.0995C20.0632 18.3027 19.7876 18.4168 19.5003 18.4168H14.0837C13.7963 18.4168 13.5208 18.3027 13.3176 18.0995C13.1145 17.8964 13.0003 17.6208 13.0003 17.3335C13.0003 17.0462 13.1145 16.7706 13.3176 16.5675C13.5208 16.3643 13.7963 16.2502 14.0837 16.2502ZM6.50033 11.9168H19.5003C19.7876 11.9168 20.0632 12.031 20.2664 12.2341C20.4695 12.4373 20.5837 12.7128 20.5837 13.0002C20.5837 13.2875 20.4695 13.563 20.2664 13.7662C20.0632 13.9694 19.7876 14.0835 19.5003 14.0835H6.50033C6.21301 14.0835 5.93746 13.9694 5.73429 13.7662C5.53113 13.563 5.41699 13.2875 5.41699 13.0002C5.41699 12.7128 5.53113 12.4373 5.73429 12.2341C5.93746 12.031 6.21301 11.9168 6.50033 11.9168Z" fill="#475467" />
+      </svg>
+    )
   return null
 }
 
-
 const navItems = [
-  { label: "Deploy Session", iconName:"dashboard", path: "/" },
-  { label: "Session History", iconName:"session", path: "/session-history" },
-  { label: "Storage", iconName:"storage", path: "/storage" },
-  { label: "Validators", iconName:"validator", path: "/validators" },
-  { label: "My Profile", iconName:"my-profile", path: "/profile" },
+  { label: "Deploy Session", iconName: "dashboard", path: "/" },
+  { label: "Session History", iconName: "session", path: "/session-history" },
+  { label: "Storage", iconName: "storage", path: "/storage" },
+  { label: "Validators", iconName: "validator", path: "/validators" },
+  { label: "My Profile", iconName: "my-profile", path: "/profile" },
 ];
 
 export default function Sidebar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <aside className="w-64 h-screen bg-[#F3F3F3] px-6 py-4 flex flex-col justify-between">
-      <div>
-        <img src={LogoThinkMesh} className="mx-auto w-full mb-4" alt="ThinkMesh" />
-        <ul className="space-y-3">
-          {navItems.map((item) => (
-            <li key={item.path}>
-              <NavLink
-                to={item.path}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-2 rounded-lg transition-all font-robot duration-200 text-sm ${
-                    isActive
-                      ? "bg-[#E7E7E7] border-l-[2.5px] border-[#28F2A1]  font-semibold text-black"
-                      : "text-gray-600  border-l-[2.5px] border-[#F3F3F3] hover:border-[#28F2A1] hover:border-[#E7E7E7] hover:bg-[#E7E7E7] hover:font-semibold hover:text-black"
-                  }`
-                }
-              >
-                <span><Icon iconName={item.iconName} /></span>
-                <span>{item.label}</span>
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+    <>
+      {/* Mobile Toggle Button */}
+      <div className="md:hidden bg-[#F3F3F3] flex items-center justify-between   px-4 py-2 top-4 right-4 z-20">
+        <ConnectWallet noText={false} type="addressOnly" />
+        <button onClick={() => setIsOpen(!isOpen)} className="p-2 bg-[# ] rounded-md border border-[#79978B66]">
+          {isOpen ? <Icon iconName="hamburgerMenu" /> : <Icon iconName="hamburgerMenu" />}
+        </button>
       </div>
-      <div className="text-sm text-gray-500 mt-6">
-        <p>Wallet connected</p>
-        <p className="text-green-600 font-mono">0x71C7...976EF356FGF</p>
-      </div>
-    </aside>
+
+      {/* Sidebar */}
+      <aside
+        className={`fixed top-0 left-0 z-40 h-screen w-64 bg-[#F3F3F3] px-6 py-4 flex flex-col justify-between transition-transform duration-300 ease-in-out
+          ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:static md:w-[277px]`}
+      >
+        <div>
+          <img src={LogoThinkMesh} className="mx-auto w-full mb-6" alt="ThinkMesh" />
+          <ul className="space-y-3">
+            {navItems.map((item) => (
+              <li key={item.path}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `flex items-center gap-3 px-4 py-2 rounded-lg transition-all font-robot duration-200 text-sm ${isActive
+                      ? "bg-[#E7E7E7] border-l-[2.5px] border-[#28F2A1] font-semibold text-black"
+                      : "text-gray-600 border-l-[2.5px] border-[#F3F3F3] hover:border-[#28F2A1] hover:bg-[#E7E7E7] hover:font-semibold hover:text-black"
+                    }`
+                  }
+                >
+                  <span>
+                    <Icon iconName={item.iconName} />
+                  </span>
+                  <span>{item.label}</span>
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <ConnectWallet noText={false} type="address" />
+      </aside>
+    </>
   );
 }
 
