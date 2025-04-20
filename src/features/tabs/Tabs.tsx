@@ -7,9 +7,10 @@ type Tab = {
 
 interface TabsProps {
     tabs: Tab[];
+    borderDisabled?: boolean;
 }
 
-const Tabs: React.FC<TabsProps> = ({ tabs }) => {
+const Tabs: React.FC<TabsProps> = ({ tabs, borderDisabled = false }) => {
     const [selectedTab, setSelectedTab] = useState(0);
 
     return (
@@ -32,7 +33,7 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
 
             {/* Tab Content */}
             <div className="mt-4">
-                <div className="md:border border-[#00000014] bg-white rounded-xl md:px-4 md:py-4 sm:pr-2 pl-0 bg-white z-10">
+                <div className={`md:border border-[#00000014] rounded-xl md:px-4 md:py-4 sm:pr-2 pl-0 z-10 ${borderDisabled ? "border-[#101727] bg-[#101727]" : "bg-white"}`}>
                     {tabs[selectedTab]?.content}
                 </div>
             </div>

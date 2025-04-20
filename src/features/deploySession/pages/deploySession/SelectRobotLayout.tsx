@@ -11,14 +11,15 @@ import ConfigureAIHeader from "./configureAI/ConfigureAIHeader";
 import ConfigureAIBody from "./configureAI/ConfigureAIBody";
 import DeploySummaryHeader from "./deploySummary/DeploySummaryHeader";
 import DeploySummaryBody from "./deploySummary/DeploySummaryBody";
+import LaunchingSimulationHeader from "./launchingSimulation/LaunchingSimulationHeader";
+import LaunchingSimulationBody from "./launchingSimulation/LaunchingSimulationBody";
+import LastPremiumHeader from "./lastPremium/LastPremiumHeader";
+import LastPremiumBody from "./lastPremium/LastPremiumBody";
 
 const SelectRobotLayout = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleNext = () => {
-    if (currentStep === 4) {
-      return;
-    }
     setCurrentStep((prev) => Math.min(prev + 1, steps.length));
   };
 
@@ -47,6 +48,14 @@ const SelectRobotLayout = () => {
       Header: <DeploySummaryHeader />,
       Body: <DeploySummaryBody onNext={handleNext} />,
     },
+    {
+      Header: <LaunchingSimulationHeader />,
+      Body: <LaunchingSimulationBody onNext={handleNext} />,
+    },
+    {
+      Header: <LastPremiumHeader />,
+      Body: <LastPremiumBody />,
+    },
     // Add more steps if needed
   ];
 
@@ -66,8 +75,8 @@ const SelectRobotLayout = () => {
 
       <div className="flex gap-4 w-full flex-col md:flex-row">
         <SelectRobotSidebar currentStep={currentStep} />
-        <div className="flex flex-col gap-4 w-full px-0 md:px-4 z-0">
-          <div className="flex flex-col gap-2 w-full px-0 md:px-4 z-0">
+        <div className="w-full">
+          <div className={`flex flex-col gap-2 w-full ${currentStep >= 5 ? "px-0" : "px-0 md:px-4"}`}>
             {steps[currentStep].Header}
             {steps[currentStep].Body}
           </div>

@@ -7,7 +7,14 @@ const sidebarItems = [
   { count: "4" },
 ];
 
-export default function SelectRobotSidebar({ currentStep = 0 }) {
+interface SelectRobotSidebarProps {
+  currentStep?: number;
+}
+
+export default function SelectRobotSidebar({ currentStep = 0 }: SelectRobotSidebarProps) {
+  // Hide sidebar if step is out of bounds
+  if (currentStep >= 5) return null;
+
   return (
     <div className="flex flex-row justify-between md:justify-start md:flex-col items-center relative">
       {sidebarItems.map((item, index) => {
