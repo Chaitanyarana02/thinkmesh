@@ -105,12 +105,12 @@ const selectRobotBodyData = [
 const SelectRobotBody = () => {
   return (
     <div>
-      <div className="border border-gray-400/50 rounded-xl px-4 py-6 sm:pr-2 sm:pl-6 bg-white z-10">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 h-[calc(100vh-365px)] overflow-y-scroll pr-3 custom-green-scrollbar">
+      <div className="md:border border-gray-400/50 rounded-xl md:px-4 md:py-6 sm:pr-2 pl-0 sm:pl-6 bg-white z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 h-[calc(100vh-390px)] md:h-[calc(100vh-365px)] overflow-y-scroll pr-3 custom-green-scrollbar">
           {selectRobotBodyData.map((item, index) => (
             <div
               key={index}
-              className="border border-[#C8C9C866] rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-200 bg-white h-[233px]"
+              className="border border-[#C8C9C866] rounded-xl overflow-hidden hover:shadow-md transition-shadow duration-200 bg-white h-[233px] cursor-pointer"
             >
               <div className="relative">
                 {item.premium && (
@@ -165,7 +165,7 @@ const SelectRobotBody = () => {
           />
           <button
             type="button"
-            className="bg-[#28F2A1] text-black px-6 text-sm font-semibold rounded-md"
+            className="bg-[#28F2A1] text-black px-3 md:px-6 text-sm font-semibold rounded-md"
           >
             Next
           </button>

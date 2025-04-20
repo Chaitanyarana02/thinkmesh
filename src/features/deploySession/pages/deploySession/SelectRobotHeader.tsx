@@ -13,12 +13,12 @@ const SelectRobotHeader = () => {
   const [selected, setSelected] = useState("All");
 
   return (
-    <div className="flex flex-col gap-6   ">
-      <div className="flex flex-col gap-2 w-[90%] sm:w-[75%] md:w-[65%] lg:w-[45%]">
-        <span className="text-2xl font-semibold text-gray-800 uppercase">
+    <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-full md:w-[90%] sm:w-[75%] md:w-[65%] lg:w-[45%]">
+        <span className="text-lg md:text-2xl font-semibold text-gray-800 uppercase">
           Select Robot
         </span>
-        <div className="relative w-full max-w-xs">
+        <div className="relative w-full md:max-w-xs">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#999F9D] w-4 h-4" />
           <input
             type="text"
@@ -30,11 +30,11 @@ const SelectRobotHeader = () => {
         </div>
 
       </div>
-      <div className="flex flex-wrap gap-3 -mt-3 ">
+      <div className="flex flex-nowrap gap-3 mb-1 overflow-x-auto pb-3 px-2">
         {filterOptions.map((item, idx) => (
           <label
             key={idx}
-            className={`flex items-center gap-2 px-4  py-2 cursor-pointer transition ${selected === item.label
+            className={`flex items-center gap-2 cursor-pointer transition mr-3 ${selected === item.label
               ? "text-[#000F09]"
               : "text-[#475467]"
               }`}

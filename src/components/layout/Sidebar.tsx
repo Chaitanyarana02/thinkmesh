@@ -73,7 +73,7 @@ export default function Sidebar() {
       {/* Mobile Toggle Button */}
       <div className="md:hidden bg-[#F3F3F3] flex items-center justify-between   px-4 py-2 top-4 right-4 z-20">
         <ConnectWallet noText={false} type="addressOnly" />
-        <button onClick={() => setIsOpen(!isOpen)} className="p-2 bg-[# ] rounded-md border border-[#79978B66]">
+        <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-md border border-[#79978B66]">
           {isOpen ? <Icon iconName="hamburgerMenu" /> : <Icon iconName="hamburgerMenu" />}
         </button>
       </div>

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import UserProfileIcon from '../../assets/Images/contact.svg';
+import LogoutIcon from '../../assets/Images/logout.svg';
 
 const Icon = ({ iconName }: { iconName: string }) => {
   if (iconName == 'wallet') {
@@ -18,6 +20,7 @@ const Icon = ({ iconName }: { iconName: string }) => {
 }
 export default function ConnectWallet({ type, noText }: { type: string, noText: boolean }) {
   const [enable, setEnable] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   useEffect(() => {
     setTimeout(() => {
       setEnable(true);
@@ -26,8 +29,22 @@ export default function ConnectWallet({ type, noText }: { type: string, noText: 
   return (
     <>
       {enable && type === 'logo' && (
-        <div className="text-white border border-[#28F2A1] bg-[#B04FF5] rounded-full font-sans w-11 h-11 flex items-center justify-center font-semibold text-sm">
-          JG
+        <div className="relative hidden md:block">
+          <div className="cursor-pointer text-white border border-[#28F2A1] bg-[#B04FF5] rounded-full font-sans w-11 h-11 flex items-center justify-center leading-[1.5] font-semibold text-sm" onClick={() => setShowMenu(!showMenu)}>
+            JG
+          </div>
+          {
+            showMenu && (
+              <div className="border border-[#C8C9C866] rounded-xl rounded-tr-none p-4 bg-[#FFFFFF] absolute top-full right-[30px] w-[215px] z-10">
+                <div className="text-base text-[#000F09] mb-1 font-medium">@User</div>
+                <div className="text-sm text-[#000F0966] pb-4 mb-4 border-b border-[#D9D9D9]">
+                  0x71C7...976EF356FGF
+                </div>
+                <div className="text-[#000F09] text-base flex items-center gap-2 mb-2 cursor-pointer"><img src={UserProfileIcon} /> My Profile</div>
+                <div className="text-[#000F09] text-base flex items-center gap-2 cursor-pointer"><img src={LogoutIcon} /> Disconnect</div>
+              </div>
+            )
+          }
         </div>
       )}
       {enable && type == 'address' ? (<>
@@ -59,7 +76,6 @@ export default function ConnectWallet({ type, noText }: { type: string, noText: 
           <span className="font-[600] text-sm  font-sans">Connect Wallet</span>
         </button>
       </>) : ""}
-
     </>
   );
 }
