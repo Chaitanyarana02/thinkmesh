@@ -6,7 +6,7 @@ export default function LayoutWrapper() {
   return (
     <div className="flex flex-col md:flex-row h-screen">
       <Sidebar />
-      <main className="relative flex-1 p-4 md:p-6 bg-white relative overflow-hidden ">
+      <main className="relative flex-1 p-4 md:p-6 bg-white relative overflow-auto">
         <div className="absolute z-[-1] -left-[230px]  -top-10 hidden">
           <svg width="622" height="707" viewBox="0 0 622 707" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_f_52_132)">
