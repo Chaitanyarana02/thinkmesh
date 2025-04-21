@@ -80,7 +80,7 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 h-screen w-64 bg-[#F3F3F3] px-6 py-4 flex flex-col justify-between transition-transform duration-300 ease-in-out
+        className={`fixed top-0 left-0 z-[9999] h-screen w-64 bg-[#F3F3F3] px-6 py-4 flex flex-col justify-between transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:static md:w-[277px]`}
       >
         <div>

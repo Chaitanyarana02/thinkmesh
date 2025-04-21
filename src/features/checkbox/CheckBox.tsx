@@ -9,7 +9,7 @@ export interface CheckboxProps {
 
 const CheckBox = ({ id, label, checked, onChange, ...props }: CheckboxProps) => {
   return (
-    <div className="w-fit flex gap-3 items-center cursor-pointer">
+    <div className="w-fit flex gap-3 items-center cursor-pointer relative">
       <input
         className="
                     peer relative appearance-none shrink-0 w-4 h-4 border-2 border-[#00000014] rounded-sm mt-0 bg-white

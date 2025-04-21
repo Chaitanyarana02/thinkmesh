@@ -68,7 +68,7 @@ const SelectRobotLayout = () => {
             Beta
           </span>
         </div>
-        <div>
+        <div className="hidden md:block">
           <ConnectWallet type="logo" noText={true} />
         </div>
       </div>

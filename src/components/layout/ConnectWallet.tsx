@@ -59,7 +59,7 @@ export default function ConnectWallet({ type, noText }: { type: string, noText: 
         </div>
       </>) : ""}
       {!enable && !noText ? (<div>
-        <p className="mb-2 font-semibold">Wallet not connected</p>
+        <p className="hidden md:block mb-2 font-semibold">Wallet not connected</p>
 
         <button className="flex items-center gap-2 bg-[#28F2A1] text-black px-6 py-2.5 rounded-tr-[12px] rounded-bl-[12px] shadow-sm font-sans border-custom">
           <span>
