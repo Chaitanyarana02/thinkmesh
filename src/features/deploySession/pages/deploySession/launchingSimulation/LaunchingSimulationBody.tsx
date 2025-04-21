@@ -83,7 +83,7 @@ const LaunchingSimulationBody = ({ onNext }: { onNext: () => void }) => {
                 <img
                   src={icon}
                   alt={step.title}
-                  className={status === 'inProgress' ? 'animate-spin' : ''}
+                  className={`min-w-[42px] ${status === 'inProgress' ? 'animate-spin' : ''}`}
                 />
               </div>
               <div>
